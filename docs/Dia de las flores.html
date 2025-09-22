@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Día de las Flores Amarillas 🌻</title>
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #D8B4FE; /* Fondo lila */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Pétalos cayendo */
+.petal {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #FFD700;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-50px) rotate(0deg); opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+/* Ramo de girasoles animado */
+.flower-bouquet {
+    display: flex;
+    gap: -30px; 
+    margin-top: 50px;
+}
+
+.flower {
+    width: 90px; /* Ajustado para que no se vea estirado */
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translateY(100px) scale(0) rotate(-20deg);
+    animation: bloom 1s ease-out forwards, sway 4s ease-in-out infinite;
+}
+
+.flower:nth-child(1) { animation-delay: 0.6s; }
+.flower:nth-child(2) { animation-delay: 0.8s; }
+.flower:nth-child(3) { animation-delay: 0.10s; }
+.flower:nth-child(4) { animation-delay: 0.12s; }
+
+@keyframes bloom {
+    0% { transform: translateY(100px) scale(0) rotate(-20deg); opacity: 0; }
+    60% { transform: translateY(-10px) scale(1.1) rotate(10deg); opacity: 1; }
+    80% { transform: translateY(0px) scale(0.95) rotate(-5deg); }
+    100% { transform: translateY(0) scale(1) rotate(0deg); }
+}
+
+@keyframes sway {
+    0% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-5px) rotate(5deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(-5px) rotate(-5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+.flower:hover {
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 5px #FFD700); }
+    to { filter: drop-shadow(0 0 15px #FFD700); }
+}
+
+/* Título bonito */
+h1 {
+    margin-top: 30px;
+    font-size: 42px;
+    color: #FFD700;
+    text-align: center;
+    text-shadow: 2px 2px 5px #6A0DAD;
+}
+
+/* Mensaje elegante */
+.message-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+textarea {
+    width: 80%;
+    max-width: 600px;
+    height: 150px;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 15px;
+    border: 2px solid #FFD700;
+    resize: none;
+    outline: none;
+    font-family: 'Georgia', serif;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 15px;
+    background-color: #FFD700;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #FFC107;
+    transform: scale(1.1);
+}
+
+.revealed-message {
+    margin-top: 25px;
+    font-size: 20px;
+    color: #333;
+    max-width: 700px;
+    line-height: 1.7;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    font-family: 'Georgia', serif;
+    white-space: pre-line;
+    text-align: left;
+}
+
+.revealed-message.show {
+    opacity: 1;
+}
+
+/* Fotos de abajo con animación */
+.photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.photos img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 3px solid #FFD700;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    transform: translateY(50px);
+    opacity: 0;
+    animation: floatUp 1s forwards;
+}
+
+.photos img:nth-child(1) { animation-delay: 0.4s; }
+.photos img:nth-child(2) { animation-delay: 0.6s; }
+.photos img:nth-child(3) { animation-delay: 0.8s; }
+.photos img:nth-child(4) { animation-delay: 0.10s; }
+
+@keyframes floatUp {
+    0% { transform: translateY(50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- Pétalos animados -->
+<script>
+for(let i=0; i<40; i++){
+    let petal = document.createElement('div');
+    petal.classList.add('petal');
+    petal.style.left = Math.random() * window.innerWidth + 'px';
+    petal.style.animationDuration = 3 + Math.random()*5 + 's';
+    petal.style.width = 10 + Math.random()*10 + 'px';
+    petal.style.height = 10 + Math.random()*10 + 'px';
+    document.body.appendChild(petal);
+}
+</script>
+
+<!-- Título bonito -->
+<h1>
+    ¡Feliz 21 de septiembre! 🌻<br>
+    Hoy celebramos el Día de las Flores Amarillas.<br>
+    Que cada flor que veas hoy te recuerde que siempre hay luz, alegría y cariño alrededor tuyo.<br>
+    Que tu sonrisa brille tanto como los girasoles y que la felicidad florezca en tu corazón cada día.
+</h1>
+
+<!-- Ramo animado de flores amarillas -->
+<div class="flower-bouquet">
+    <img src="https://images.unsplash.com/photo-1651568773893-284763ed694f?auto=format&fit=crop&w=300&h=300" class="flower" alt="Flor 1">
+    <img src="https://images.unsplash.com/photo-1651568773893-284763ed694f?auto=format&fit=crop&w=300&h=300" class="flower" alt="Flor 2">
+    <img src="https://img.freepik.com/vector-premium/flores-amarillas_23-2147503057.jpg" class="flower" alt="Flor 3">
+    <img src="https://i.pinimg.com/736x/cc/82/f1/cc82f1b1d249e5c8cc3f4b288b0ef779.jpg" class="flower" alt="Flor 4">
+</div>
+
+<!-- Área de mensaje -->
+<div class="message-container">
+<textarea id="userMessage" placeholder="Sé que quizás ya no quieras saber nada de mí, pero quería hacerte este último detalle con todo mi corazón. Me hubiera encantado entregarte en persona un ramo de flores amarillas por ser hoy el día. Tal vez muchas personas ya te hayan dado un detalle, pero yo quería que este viniera de mí, sincero y con mucho cariño. Presiona el botón para ver el mensaje que he escrito especialmente para ti."></textarea><br>
+<button onclick="showMessage()">Mostrar mi mensaje</button>
+<div id="revealedMessage" class="revealed-message"></div>
+</div>
+
+<!-- Video que se reproduce automáticamente y se repite -->
+<div class="video-container">
+    <video width="320" height="240" autoplay loop controls>
+        <source src="videos/musica.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de video.
+    </video>
+</div>
+
+<!-- Fotos de abajo (locales en carpeta images) -->
+<div class="photos">
+    <img src="images/imagen1.jpg" alt="Foto 1">
+    <img src="images/imagen2.jpg" alt="Foto 2">
+    <img src="images/imagen3.jpg" alt="Foto 3">
+    <img src="images/imagen4.jpg" alt="Foto 4">
+</div>
+
+<script>
+function showMessage() {
+    const message = `
+Si alguien me hubiera dicho que un día tu nombre se volvería mi pensamiento más recurrente, que mi día no estaría completo sin escuchar tu voz, que tu risa se convertiría en mi canción favorita... probablemente no lo habría creído. Pero aquí estoy, tratando de poner en palabras algo que quizás no tenga explicación...
+
+No planeé enamorarme de ti. No era parte de ningún plan ni de ninguna historia que imaginé. Pero sucedió, y ahora me pregunto cómo pude vivir tanto tiempo sin sentir esto... No fue un solo instante ni un momento específico; fue cada pequeño detalle, cada conversación, cada mirada que sin darme cuenta me iba atrapando...
+
+Me enamoré de ti porque cuando hablo contigo, todo parece más ligero, como si el mundo se pusiera en pausa y solo existiéramos tú y yo... Porque contigo no hay silencios incómodos, solo pausas en las que disfruto simplemente estar. Porque sin importar cómo haya sido mi día, basta con que me hables para que todo se sienta mejor...
+
+Me enamoré porque contigo no tengo que pretender nada. Puedo ser quien realmente soy, sin miedo a equivocarme, sin necesidad de impresionar... Porque cuando me miras, siento que ves más allá de lo que los demás ven, que entiendes mis pensamientos incluso antes de que los diga en voz alta. Y eso, aunque me asusta un poco, me hace sentir que contigo siempre tengo un refugio...
+
+Me enamoré porque en tu risa hay una chispa que enciende algo en mí, porque cuando hablas con pasión de tus sueños, tu mirada brilla de una forma que me deja sin palabras... Porque me gusta cómo te emocionas por las cosas más simples, cómo tienes esa manera tan tuya de ver el mundo, como si en cada pequeño detalle hubiera algo digno de admirar...
+
+Me enamoré de ti porque me gusta cómo me haces sentir. Me gusta que, sin proponértelo, logras llenar mis días de luz. Me gusta que, aunque estés lejos, de alguna manera siempre te siento cerca... Me gusta la forma en que logras calmarme cuando todo parece ir demasiado rápido y, al mismo tiempo, la forma en que haces que mi corazón lata más fuerte...
+
+Y cada noche me hago la misma pregunta: ¿cómo hago para no caer aún más en este sentimiento? ¿Cómo evitar que crezca algo que ya es tan inmenso?...
+
+A veces intento convencerme de que no debería sentir esto tan profundo, que quizá debería frenar un poco, que tal vez me estoy perdiendo demasiado en ti. Pero luego pienso en todo lo que eres, en cada momento contigo, y me doy cuenta de que no quiero evitarlo. No quiero detenerlo...
+
+Porque tú vales la pena. Cada instante, cada palabra, cada sonrisa. Valen la pena los pensamientos que me asaltan a mitad de la noche, valen la pena las ganas de verte, de hablarte, de saber de ti. Vale la pena todo lo que siento, incluso si a veces me asusta, incluso si no sé qué pasará después...
+
+No sé qué nos deparará el futuro, pero hay algo que sí sé: Me enamoré de ti sin esperarlo, sin planearlo, pero con todo mi corazón. Y si tuviera la oportunidad de elegir, te volvería a elegir a ti, una y otra vez...
+    `;
+    const revealed = document.getElementById('revealedMessage');
+    revealed.innerText = message;
+    revealed.classList.add('show');
+    revealed.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
